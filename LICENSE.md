@@ -1,4 +1,4 @@
-The yii2-field application is free software. It is released under the terms of
+The yii2-field module is free software. It is released under the terms of
 the following BSD License.
 
 Copyright © 2015 by pistol88 (https://github.com/pistol88)
