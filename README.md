@@ -65,9 +65,6 @@ php yii migrate --migrationPath=vendor/pistol88/yii2-field/migrations
 
 Управление полями: ?r=field/field
 
-Настройка
----------------------------------
-
 Для модели, с которой будут работать поля, добавить поведение:
 
 ```php 
