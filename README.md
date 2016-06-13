@@ -3,14 +3,14 @@ Yii2-field
 
 С помощью данного модуля можно добавить поля для какой-то модели через веб-интерфейс. Типы полей на данный момент:
 
-*Text
-*Numeric
-*Date
-*Textarea
-*Select
-*Radio
-*Checkbox
-*Image (в разработке)
+* Text
+* Numeric
+* Date
+* Textarea
+* Select
+* Radio
+* Checkbox
+* Image (в разработке)
 
 Для select, radio, checkbox можно заранее задавать в настройках варианты.
 
@@ -61,7 +61,7 @@ php yii migrate --migrationPath=vendor/pistol88/yii2-field/migrations
     ]
 ```
 
-*relationModels - перечень моделей, к которым можно прикрепить поля
+* relationModels - перечень моделей, к которым можно прикрепить поля
 
 Управление полями: ?r=field/field
 
