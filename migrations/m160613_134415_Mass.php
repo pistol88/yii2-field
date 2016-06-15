@@ -56,11 +56,8 @@ class m160613_134415_Mass extends Migration {
             $this->addForeignKey('fk_field_category_id', '{{%field}}', 'category_id', 'field_category', 'id');
             $this->addForeignKey('fk_field_value_variant_id', '{{%field_value}}', 'variant_id', 'field_variant', 'id');
             $this->addForeignKey('fk_field_value_field_id', '{{%field_value}}', 'field_id', 'field', 'id');
-            $this->addForeignKey('fk_field_value_field_id', '{{%field_value}}', 'field_id', 'field', 'id');
-            $this->addForeignKey('fk_field_value_field_id', '{{%field_value}}', 'field_id', 'field', 'id');
             $this->addForeignKey('fk_field_variant_field_id', '{{%field_variant}}', 'field_id', 'field', 'id');
-            
-            $transaction->commit();
+
         } catch (Exception $e) {
             echo 'Catch Exception ' . $e->getMessage() . ' ';
         }
