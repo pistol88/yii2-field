@@ -26,7 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
 				'attribute' => 'category_id',
                 'label' => 'Категория',
                 'content' => function($model) {
-                    return $model->category->name;
+                    if($model->category) {
+                        return $model->category->name;
+                    }
                 },
 				'filter' => Html::activeDropDownList(
 					$searchModel,
