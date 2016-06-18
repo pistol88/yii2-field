@@ -59,7 +59,7 @@ class Field extends \yii\db\ActiveRecord
     
     public function beforeDelete()
     {
-        foreach ($this->hasMany(FieldRelationValue::className(), ['field_id' => 'id'])->all() as $frv) {
+        foreach ($this->hasMany(FieldValue::className(), ['field_id' => 'id'])->all() as $frv) {
             $frv->delete();
         }
         
