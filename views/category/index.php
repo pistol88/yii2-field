@@ -6,7 +6,6 @@ use yii\helpers\Url;
 $this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
 
-\pistol88\shop\assets\BackendAsset::register($this);
 ?>
 <div class="category-index">
 
