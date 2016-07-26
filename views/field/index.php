@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= \kartik\grid\GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'export' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 			'name',
