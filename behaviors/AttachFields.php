@@ -19,25 +19,37 @@ class AttachFields extends Behavior
         ];
     }
     
-    public function getField($code)
+    public function flush()
     {
-        return $this->getFieldValue($code);
-    }
-    
-    public function getFieldValue($code)
-    {
-        if($field = Field::findOne(['slug' => $code])) {
-            if($field->type == 'checkbox') {
-                return $this->getFieldValues($code);
-            }
-            if($value = FieldValue::findOne(['field_id' => $field->id, 'item_id' => $this->owner->id])) {
-                return $value->value;
-            }
+        $this->fieldVariants = [];
+        
+        $values = FieldValue::find()->where(['item_id' => $this->owner->id])->with('field')->all();
+
+        foreach($values as $value) {
+            $this->fieldVariants[$value->field->slug] = $value->value;
         }
 
+        return true;
+    }
+
+    public function getField($code)
+    {
+        if($this->fieldVariants === null) {
+            $this->flush();
+        }
+        
+        return $this->getFieldValue($code);
+    }
+
+    public function getFieldValue($code)
+    {
+        if(isset($this->fieldVariants[$code])) {
+            return $this->fieldVariants[$code];
+        }
+        
         return false;
     }
-    
+
     public function getFieldValues($code)
     {
         if($field = Field::findOne(['slug' => $code])) {

@@ -29,6 +29,11 @@ class FieldValue extends \yii\db\ActiveRecord
         return $this->hasOne(FieldVariant::className(), ['id' => 'variant_id']);
     }
     
+    public function getField()
+    {
+        return $this->hasOne(Field::className(), ['id' => 'field_id']);
+    }
+    
     public function attributeLabels()
     {
         return [
@@ -40,7 +45,7 @@ class FieldValue extends \yii\db\ActiveRecord
             'numeric_value' => 'Числовое значение',
         ];
     }
-    
+
     public function afterSave($insert, $changedAttributes) {
         parent::afterSave($insert, $changedAttributes);
         
