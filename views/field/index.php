@@ -21,47 +21,47 @@ $this->params['breadcrumbs'][] = $this->title;
         'export' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-			'name',
+            'name',
             'slug',
-			[
-				'attribute' => 'category_id',
+            [
+                'attribute' => 'category_id',
                 'label' => 'Категория',
                 'content' => function($model) {
                     if($model->category) {
                         return $model->category->name;
                     }
                 },
-				'filter' => Html::activeDropDownList(
-					$searchModel,
-					'type',
-					ArrayHelper::map(Category::find()->all(), 'id', 'name'),
-					['class' => 'form-control', 'prompt' => 'Категория']
-				)
-			],
-			[
-				'attribute' => 'relation_model',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'type',
+                    ArrayHelper::map(Category::find()->all(), 'id', 'name'),
+                    ['class' => 'form-control', 'prompt' => 'Категория']
+                )
+            ],
+            [
+                'attribute' => 'relation_model',
                 'content' => function($model) {
                     return @yii::$app->getModule('field')->relationModels[$model->relation_model];
                 },
-				'filter' => Html::activeDropDownList(
-					$searchModel,
-					'type',
-					yii::$app->getModule('field')->relationModels,
-					['class' => 'form-control', 'prompt' => 'Модель']
-				)
-			],
-			[
-				'attribute' => 'type',
-                'content' => function($model) {
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'type',
+                    yii::$app->getModule('field')->relationModels,
+                    ['class' => 'form-control', 'prompt' => 'Модель']
+                )
+                ],
+                [
+                    'attribute' => 'type',
+                    'content' => function($model) {
                     return yii::$app->getModule('field')->types[$model->type];
                 },
-				'filter' => Html::activeDropDownList(
-					$searchModel,
-					'type',
-					yii::$app->getModule('field')->types,
-					['class' => 'form-control', 'prompt' => 'Тип']
-				)
-			],
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'type',
+                    yii::$app->getModule('field')->types,
+                    ['class' => 'form-control', 'prompt' => 'Тип']
+                )
+            ],
             'description',
             ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}',  'buttonOptions' => ['class' => 'btn btn-default'], 'options' => ['style' => 'width: 110px;']],
         ],
