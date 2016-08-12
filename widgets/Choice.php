@@ -38,7 +38,7 @@ class Choice extends \yii\base\Widget
         
         $row = [];
         
-        $row[] = Html::tag('div', Html::tag('strong', $field->name), ['class' => 'panel-heading']);
+        $row[] = Html::tag('div', Html::tag('strong', Html::a($field->name, ['/field/field/update', 'id' => $field->id])), ['class' => 'panel-heading']);
 
         $variants = [];
 

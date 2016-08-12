@@ -36,7 +36,9 @@ class Checkbox extends \yii\base\Widget
     {
         $return = [];
 
-        $checked = in_array($item->id, $checked);
+        if($checked) {
+            $checked = in_array($item->id, $checked);
+        }
 
         $return[] = Html::checkbox('variant', $checked, ['autocomplete' => 'off', 'id' => 'fieldvariant'.$item->id, 'data-id' => $item->id]);
         $return[] = ' ';
