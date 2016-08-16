@@ -6,6 +6,7 @@ use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use pistol88\field\models\Field;
+use pistol88\field\models\FieldVariant;
 use pistol88\field\models\FieldValue;
 
 class AttachFields extends Behavior
@@ -26,7 +27,11 @@ class AttachFields extends Behavior
         $values = FieldValue::find()->where(['item_id' => $this->owner->id])->with('field')->all();
 
         foreach($values as $value) {
-            $this->fieldVariants[$value->field->slug] = $value->value;
+            if($value->variant_id) {
+                $this->fieldVariants[$value->field->slug] = FieldVariant::findOne($value->variant_id)->value;
+            } else {
+                $this->fieldVariants[$value->field->slug] = $value->value;
+            }        
         }
 
         return true;
