@@ -23,7 +23,6 @@ class Radio extends \yii\base\Widget
         $variantsList = $this->field->variants;
         
         $variantsList = ArrayHelper::map($variantsList, 'id', 'value');
-        $variantsList[0] = '-';
         ksort($variantsList);
 
         $checked = $this->model->getFieldVariantId($this->field->slug);
