@@ -65,7 +65,7 @@ php yii migrate --migrationPath=vendor/pistol88/yii2-field/migrations
 
 * relationModels - перечень моделей, к которым можно прикрепить поля
 
-Управление полями: ?r=field/field
+Все доступные CRUD для управления полями: ?r=field/defailt/index
 
 Для модели, с которой будут работать поля, добавить поведение:
 
