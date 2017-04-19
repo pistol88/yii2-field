@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Settings */
 /* @var $form yii\widgets\ActiveForm */
 
 if($model->isNewRecord) {
@@ -16,7 +15,7 @@ if($model->isNewRecord) {
         <?= $form->field($model, 'field_id')->hiddenInput()->label(false); ?>
 
         <div class="form-group field-field-name required">
-            <textarea name="list" class="form-control" style="width: 400px; height: 160px;"></textarea>
+            <textarea name="list" class="form-control" style="width: 400px; height: 160px;" placeholder="Каждый с новой строки"></textarea>
         </div>
 
         <div class="form-group">

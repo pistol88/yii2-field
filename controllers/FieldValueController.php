@@ -55,14 +55,14 @@ class FieldValueController extends Controller
     {
         $post = yii::$app->request->post('FieldValue');
 
-        $model = FieldValue::findOne(['item_id' => $post['item_id'], 'field_id' => $post['field_id']]);
+        $model = FieldValue::findOne(['model_name' => $post['model_name'], 'item_id' => $post['item_id'], 'field_id' => $post['field_id']]);
         
         if(!$model) {
             $model = new fieldValue;
         } else {
             $field = field::findOne($model->field_id);
             if($field->type == 'radio') {
-                FieldValue::deleteAll(['item_id' => $post['item_id'], 'field_id' => $post['field_id']]);
+                FieldValue::deleteAll(['model_name' => $post['model_name'], 'item_id' => $post['item_id'], 'field_id' => $post['field_id']]);
                 $model = new fieldValue;
             }
         }

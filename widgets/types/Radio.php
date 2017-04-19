@@ -3,7 +3,6 @@ namespace pistol88\field\widgets\types;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use Yii;
 
 class Radio extends \yii\base\Widget

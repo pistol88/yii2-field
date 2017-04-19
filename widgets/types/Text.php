@@ -3,7 +3,6 @@ namespace pistol88\field\widgets\types;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use Yii;
 
 class Text extends \yii\base\Widget
@@ -28,7 +27,9 @@ class Text extends \yii\base\Widget
 
         $value = $this->model->getField($this->field->slug);
 
-        $input = Html::input('text', 'choice-field-value', $value, ['data-id' => $this->field->id, 'data-item-id' => $this->model->id, 'class' => 'form-control', 'placeholder' => '']);
+        $model = $this->model;
+
+        $input = Html::input('text', 'choice-field-value', $value, ['data-id' => $this->field->id, 'data-model-name' => $model::className(), 'data-item-id' => $this->model->id, 'class' => 'form-control', 'placeholder' => '']);
         $button = Html::tag('span', Html::button('<i class="glyphicon glyphicon-ok"></i>', ['class' => ' btn btn-success field-save-value']), ['class' => 'input-group-btn']);
         
         $this->options['class'] .= ' input-group';

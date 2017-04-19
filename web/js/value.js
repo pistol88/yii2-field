@@ -26,12 +26,14 @@ pistol88.fieldvalue = {
         var value = $(this).val();
         var field_id = $(this).data('id');
         var item_id = $(this).data('item-id');
+        var model_name = $(this).data('model-name');
         var update_action = $(this).parents('.field-data-container').data('update-action');
-        
+
         var data = {};
         data.FieldValue = {};
         data.FieldValue.field_id = field_id;
         data.FieldValue.item_id = item_id;
+        data.FieldValue.model_name = model_name;
         data.FieldValue.value = value;
         data[pistol88.fieldvalue.csrf_param] = pistol88.fieldvalue.csrf_token;
 

@@ -23,12 +23,14 @@ class AttachFields extends Behavior
     public function flush()
     {
         $this->fieldVariants = [];
-        
-        $values = FieldValue::find()->where(['item_id' => $this->owner->id])->with('field')->all();
+
+        $owner = $this->owner;
+
+        $values = FieldValue::find()->where(['item_id' => $owner->id, 'model_name' => $owner::className()])->with('field')->all();
 
         foreach($values as $value) {
-            if($value->variant_id) {
-                $this->fieldVariants[$value->field->slug] = FieldVariant::findOne($value->variant_id)->value;
+            if($value->variant_id && $variant = FieldVariant::findOne($value->variant_id)) {
+                $this->fieldVariants[$value->field->slug] = $variant->value;
             } else {
                 $this->fieldVariants[$value->field->slug] = $value->value;
             }        

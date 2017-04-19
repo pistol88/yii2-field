@@ -3,7 +3,6 @@ namespace pistol88\field\widgets\types;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use Yii;
 
 class TextArea extends \yii\base\Widget
@@ -28,7 +27,9 @@ class TextArea extends \yii\base\Widget
 
         $value = $this->model->getField($this->field->slug);
 
-        $input = Html::textarea('choice-field-value', $value, ['data-id' => $this->field->id, 'data-item-id' => $this->model->id, 'class' => 'form-control', 'style' => 'width: 98%;  height: 100px;', 'placeholder' => '']);
+        $model = $this->model;
+
+        $input = Html::textarea('choice-field-value', $value, ['data-id' => $this->field->id, 'data-model-name' => $model::className(), 'data-item-id' => $this->model->id, 'class' => 'form-control', 'style' => 'width: 98%;  height: 100px;', 'placeholder' => '']);
         $button = Html::tag('div', Html::button('<i class="glyphicon glyphicon-ok"></i>', ['class' => ' btn btn-success field-save-value']));
         
         $this->options['class'] .= ' input-group';

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = 'Категории';
+$this->params['breadcrumbs'][] = ['label' => 'Поля', 'url' => ['/field/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -11,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Поля', ['/field/field'], ['class' => 'btn btn-success']) ?>
     </p>
     
     <?php

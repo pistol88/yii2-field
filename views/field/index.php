@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use pistol88\field\models\Category;
 
 $this->title = 'Поля';
+$this->params['breadcrumbs'][] = ['label' => 'Поля', 'url' => ['/field/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="field-index">
@@ -12,7 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Добавить поле', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Категории', ['/field/category'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= \kartik\grid\GridView::widget([

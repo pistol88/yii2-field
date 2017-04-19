@@ -45,6 +45,7 @@ class Choice extends \yii\base\Widget
         $options = [
             'class' => 'form-group option-variants field-data-container',
             'data-item-id' => $model->id,
+            'data-model-name' => $model::className(),
             'data-id' => $field->id,
             'data-delete-action' => Url::toRoute(['/field/field-value/delete']),
             'data-create-action' => Url::toRoute(['/field/field-value/create']),

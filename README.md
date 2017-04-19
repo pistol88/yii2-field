@@ -1,7 +1,9 @@
 Yii2-field
 ==========
 
-С помощью данного модуля можно добавить поля для какой-то модели через веб-интерфейс. Типы полей на данный момент:
+С помощью данного модуля можно добавить поля для какой-то модели через веб-интерфейс и потом производить выборки по значению.
+
+Типы полей на данный момент:
 
 * Text
 * Numeric
@@ -77,6 +79,28 @@ php yii migrate --migrationPath=vendor/pistol88/yii2-field/migrations
     }
 ```
 
+Чтобы иметь возможность также фильтровать результаты Find, подменяем Query в модели:
+
+```php
+    public static function Find()
+    {
+        $return = new ProductQuery(get_called_class());
+        return $return;
+    }
+```
+
+В ProductQuery должно быть это поведение:
+
+```php
+    function behaviors()
+    {
+       return [
+           'field' => [
+               'class' => 'pistol88\field\behaviors\Filtered',
+           ],
+       ];
+    }
+```
 
 Использование
 ---------------------------------
@@ -85,6 +109,14 @@ php yii migrate --migrationPath=vendor/pistol88/yii2-field/migrations
 
 ```php
 echo $model->getField('field_name');
+```
+
+Выбрать все записи по значению значению поля:
+
+```php
+$productsFind = Product::find()->field('power', 100)->all(); //Все записи с power=100
+$productsFind = Product::find()->field('power', 100, '>')->all(); //Все записи с power>100
+$productsFind = Product::find()->field('power', 100, '<')->all(); //Все записи с power<100
 ```
 
 Виджеты

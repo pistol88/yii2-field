@@ -20,7 +20,7 @@ class FieldValue extends \yii\db\ActiveRecord
                 return empty($model->variant_id) && empty($model->value);
             }],
             [['field_id', 'item_id', 'variant_id', 'numeric_value'], 'integer'],
-            [['value'], 'string'],
+            [['value', 'model_name'], 'string'],
         ];
     }
 
@@ -42,6 +42,7 @@ class FieldValue extends \yii\db\ActiveRecord
             'item_id' => 'Элемент',
             'variant_id' => 'Вариант',
             'value' => 'Значение',
+            'model_name' => 'Имя модели',
             'numeric_value' => 'Числовое значение',
         ];
     }

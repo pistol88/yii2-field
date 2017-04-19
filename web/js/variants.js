@@ -16,6 +16,7 @@ pistol88.fieldvariant = {
 
         var field_id = $(this).parents('.field-data-container').data('id');
         var item_id = $(this).parents('.field-data-container').data('item-id');
+        var model_name = $(this).parents('.field-data-container').data('model-name');
 
         var create_action = $(this).parents('.field-data-container').data('create-action');
         var update_action = $(this).parents('.field-data-container').data('update-action');
@@ -39,6 +40,7 @@ pistol88.fieldvariant = {
                 data.FieldValue = {};
                 data.FieldValue.variant_id = variant_id;
                 data.FieldValue.field_id = field_id;
+                data.FieldValue.model_name = model_name;
                 data.FieldValue.item_id = item_id;
                 data[pistol88.fieldvariant.csrf_param] = pistol88.fieldvariant.csrf_token;
 
