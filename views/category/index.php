@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             ['attribute' => 'id', 'filter' => false, 'options' => ['style' => 'width: 55px;']],
             'name',
-            ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}',  'buttonOptions' => ['class' => 'btn btn-default'], 'options' => ['style' => 'width: 125px;']],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{update} {delete}']
         ],
     ]);
     ?>
